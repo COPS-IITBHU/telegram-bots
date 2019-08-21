@@ -13,7 +13,7 @@ bot.use((ctx: ContextMessageUpdate, next) => {
 
 bot.on('new_chat_members', (ctx: ContextMessageUpdate) => {
     const name = ctx.from ? ctx.from.first_name : "fellow nerd"
-    return ctx.reply(`Hey ${name}! I'm really interested in you, so can you please introduce yourself?`)
+    return ctx.reply(`Hey ${name}! Welcome to COPS Dev Group. Please introduce yourself?`)
 })
 
 bot.on('text', (ctx: ContextMessageUpdate) => {
