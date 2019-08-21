@@ -12,11 +12,12 @@ bot.use((ctx: ContextMessageUpdate, next) => {
 })
 
 bot.on('new_chat_members', (ctx: ContextMessageUpdate) => {
-    return ctx.reply("Hey fellow nerd! I'm really interested in you, so can you please introduce yourself?")
+    const name = ctx.from ? ctx.from.first_name : "fellow nerd"
+    return ctx.reply(`Hey ${name}! I'm really interested in you, so can you please introduce yourself?`)
 })
 
 bot.on('text', (ctx: ContextMessageUpdate) => {
-    return ctx.reply((ctx.message) ? ctx.message.text || "" : "")
+    return ctx.reply("Hmmm... Interesting 😁")
 })
 
 module.exports = (req: NowRequest, resp: NowResponse) => {
