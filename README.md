@@ -26,4 +26,4 @@ new bot and obtain a token.
 
 You can do that by this query.
 
-https://api.telegram.org/bot<bot-key>/setWebhook?url=<deployed-url>
+https://api.telegram.org/bot"bot-key"/setWebhook?url="deployed-url"
