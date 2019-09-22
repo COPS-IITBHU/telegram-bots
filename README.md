@@ -14,7 +14,7 @@ new bot and obtain a token.
 
 ----
 ## Setting Secret Key
-- `now secrets add cops_helloworld_token.key "YOUR-BOT-KEY"`
+- `now secrets add cops_helloworld_bot.token "YOUR-BOT-KEY"`
 
 ----
 ## Deploy To Now.sh
