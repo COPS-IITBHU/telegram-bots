@@ -18,16 +18,16 @@ bot.on('new_chat_members', (ctx: ContextMessageUpdate) => {
 })
 
 bot.command('DevTalks', (ctx: ContextMessageUpdate) => {
-    axios.get(`https://api.github.com/repos/COPS-IITBHU/DevTalks/issues`).then(async function (response) {
-        await ctx.reply("Upcoming Dev Talks")
+    axios.get(`https://api.github.com/repos/COPS-IITBHU/DevTalks/issues`).then(function (response) {
         const result = response.data
-
-        result.forEach(async (element) => {
-            await ctx.reply(element.title)
-            await ctx.reply(element.body)
+        if (result.length == 0) {
+            ctx.reply("No upcoming dev talks.")
+        }
+        result.forEach((element) => {
+            ctx.reply(element.title)
         })
     }).catch(function (error){
-        return ctx.reply(`Some error fetching the upcoming dev talks. ${error}`)
+        return ctx.reply(`Some error fetching the upcoming dev talks.`)
     })
 })
 
