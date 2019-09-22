@@ -11,7 +11,6 @@ bot.use((ctx: ContextMessageUpdate, next) => {
         console.log('Response time %sms', ms)
     })
 })
-
 bot.on('new_chat_members', (ctx: ContextMessageUpdate) => {
     const name = ctx.from ? ctx.from.first_name : "fellow nerd"
     return ctx.reply(`Hey ${name}! I'm really interested in you, so can you please introduce yourself?`)
@@ -24,7 +23,7 @@ bot.command('DevTalks', (ctx: ContextMessageUpdate) => {
             ctx.reply("No upcoming dev talks.")
         }
         result.forEach((element) => {
-            ctx.reply(element.title)
+            ctx.replyWithMarkdown(`[${element.title}](${element.html_url}) by [${element.user.login}](${element.user.html_url})`)
         })
     }).catch(function (error){
         return ctx.reply(`Some error fetching the upcoming dev talks.`)
