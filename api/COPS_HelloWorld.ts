@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from '@now/node'
-import Telegraf, { ContextMessageUpdate, Middleware } from 'telegraf';
+import Telegraf, { ContextMessageUpdate, Middleware, Extra } from 'telegraf';
 import axios from "axios"
 
 const bot = new Telegraf(process.env.COPS_HelloWorld_BOT_TOKEN || "");
@@ -22,9 +22,8 @@ bot.command('DevTalks', (ctx: ContextMessageUpdate) => {
         if (result.length == 0) {
             ctx.reply("No upcoming dev talks.")
         }
-        result.forEach((element) => {
-            ctx.replyWithMarkdown(`[${element.title}](${element.html_url}) by [${element.user.login}](${element.user.html_url})`)
-        })
+	let msgList = result.map(element => `[${element.title}](${element.html_url}) by [${element.user.login}](${element.user.html_url})`)
+	ctx.replyWithMarkdown(msgList.join('\n\n'), Extra.webPreview(false))
     }).catch(function (error){
         return ctx.reply(`Some error fetching the upcoming dev talks.`)
     })
