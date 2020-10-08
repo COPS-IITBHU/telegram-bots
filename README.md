@@ -35,6 +35,7 @@ new bot and obtain a token.
 #### Go to your vercel dashboard and set the env variable
 - Set an env variable with key `LUCY_BOT_TOKEN` equal to your bot token.
 
+**NOTE** - You may need to deploy your bot again after setting the env variables.
 
 #### Setup Webhooks
 You need to setup webhooks so that every update could be sent to that url as a post request. You can do that by this query.
