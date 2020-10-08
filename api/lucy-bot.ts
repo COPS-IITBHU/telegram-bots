@@ -25,7 +25,7 @@ bot.use(async (ctx: ContextMessageUpdate, next) => {
   console.log('Response time: %sms', ms);
 });
 
-bot.on('new_chat_members', async (ctx: ContextMessageUpdate) => {
+bot.on('new_chat_members', (ctx: ContextMessageUpdate) => {
   const name = ctx.from ? ctx.from.first_name : 'fellow nerd';
   ctx.reply(`Hey ${name}! I'm really interested in you, so can you please introduce yourself?`);
 });
@@ -48,11 +48,11 @@ bot.command('DevTalks', async (ctx: ContextMessageUpdate) => {
   ctx.replyWithMarkdown(msgList.join('\n\n'), <ExtraEditMessage>Extra.webPreview(false));
 });
 
-bot.command('hi', async (ctx: ContextMessageUpdate) => {
+bot.command('hi', (ctx: ContextMessageUpdate) => {
   throw new Error('Some Custom Error');
 });
 
-bot.command('random', async (ctx: ContextMessageUpdate) => {
+bot.command('random', (ctx: ContextMessageUpdate) => {
   ctx.reply('Some Message');
 });
 
