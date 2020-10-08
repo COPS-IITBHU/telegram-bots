@@ -44,6 +44,10 @@ bot.command('DevTalks', async (ctx: ContextMessageUpdate) => {
   ctx.replyWithMarkdown(msgList.join('\n\n'), <ExtraEditMessage>Extra.webPreview(false));
 });
 
+bot.command('hi', async (ctx: ContextMessageUpdate) => {
+  throw new Error('Some Custom Error');
+});
+
 if (!PROD_ENV) {
   bot.launch();
 }
