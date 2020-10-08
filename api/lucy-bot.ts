@@ -53,7 +53,7 @@ bot.command('hi', (ctx: ContextMessageUpdate) => {
 });
 
 bot.command('random', (ctx: ContextMessageUpdate) => {
-  ctx.reply('Some Message');
+  return ctx.reply('Some Message');
 });
 
 if (!PROD_ENV) {
