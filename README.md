@@ -29,12 +29,12 @@ new bot and obtain a token.
 #### Get vercel CLI
 - `npm i -g vercel`
 
-
-#### Adding your token as a secret
-- `vercel secrets add lucy_bot_token YOUR-BOT-TOKEN`
-
 #### Deploying the bot
 - `vercel --prod`
+
+#### Go to your vercel dashboard and set the env variable
+- Set an env variable with key `LUCY_BOT_TOKEN` equal to your bot token.
+
 
 #### Setup Webhooks
 You need to setup webhooks so that every update could be sent to that url as a post request. You can do that by this query.

@@ -1,6 +1,0 @@
-{
-    "version": 2,
-    "env": {
-        "LUCY_BOT_TOKEN": "@lucy_bot_token"
-    }
-}
