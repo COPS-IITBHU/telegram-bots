@@ -6,6 +6,7 @@
 .idea
 **/node_modules/*
 **/.firebaserc
+lib
 
 ### Firebase Patch ###
 .runtimeconfig.json
@@ -160,3 +161,4 @@ typings/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/git,node,linux,macos,firebase
+.vercel
