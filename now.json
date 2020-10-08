@@ -1,6 +1,6 @@
 {
     "version": 2,
     "env": {
-        "COPS_HelloWorld_BOT_TOKEN": "@cops_helloworld_bot.token"
+        "LUCY_BOT_TOKEN": "@lucy_bot_token"
     }
 }
