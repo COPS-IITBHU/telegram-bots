@@ -48,6 +48,10 @@ bot.command('hi', async (ctx: ContextMessageUpdate) => {
   throw new Error('Some Custom Error');
 });
 
+bot.command('random', async (ctx: ContextMessageUpdate) => {
+  ctx.reply('Some Message');
+});
+
 if (!PROD_ENV) {
   bot.launch();
 }
