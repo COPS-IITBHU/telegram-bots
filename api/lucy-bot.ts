@@ -12,6 +12,10 @@ if (!PROD_ENV) {
 
 const bot = new Telegraf(process.env.LUCY_BOT_TOKEN || '');
 
+bot.catch((err, ctx) => {
+  console.log(`Ooops, encountered an error for ${ctx.updateType}`, err);
+});
+
 bot.use(async (ctx: ContextMessageUpdate, next) => {
   const start = new Date();
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
