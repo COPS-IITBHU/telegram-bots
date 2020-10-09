@@ -3,7 +3,7 @@
   "scripts": {
     "lint": "eslint 'api/**/*.ts'",
     "typescript": "tsc --skipLibCheck",
-    "lucy-bot": "nodemon --watch 'api/**/*.ts' --exec 'ts-node' api/lucy-bot.ts"
+    "lucy-bot": "nodemon --watch 'api/**/*.ts' --exec ts-node api/lucy-bot.ts"
   },
   "engines": {
     "node": "12"
