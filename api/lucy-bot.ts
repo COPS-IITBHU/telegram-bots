@@ -26,6 +26,14 @@ bot.on('new_chat_members', async (ctx: ContextMessageUpdate) => {
   ctx.reply(`Hey ${name}! I'm really interested in you, so can you please introduce yourself?`);
 });
 
+bot.command('AddEvent', async (ctx: ContextMessageUpdate, startInfo) => {
+  //let eventLink: string = ``;
+  console.log(ctx.message);
+  ctx.reply(
+    `https://calendar.google.com/calendar/r/eventedit?text=COPS+Meeting&dates=20190920T160000/20190920T180000&details=COPS+dev+group+meeting&location=IIT(BHU)`,
+  );
+});
+
 bot.command('DevTalks', async (ctx: ContextMessageUpdate) => {
   const octokit = new Octokit();
   const { data } = await octokit.issues.listForRepo({
