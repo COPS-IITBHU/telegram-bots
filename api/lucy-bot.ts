@@ -26,11 +26,18 @@ bot.on('new_chat_members', async (ctx: ContextMessageUpdate) => {
   ctx.reply(`Hey ${name}! I'm really interested in you, so can you please introduce yourself?`);
 });
 
-bot.command('AddEvent', async (ctx: ContextMessageUpdate, startInfo) => {
-  //let eventLink: string = ``;
-  console.log(ctx.message);
+bot.command('AddEvent', async (ctx: ContextMessageUpdate) => {
+  let args = ctx.message?.text;
+  let startDate: any = args?.slice(10, args.lastIndexOf(' '));
+  let startTime: any = args?.slice(args.lastIndexOf(' ') + 1);
+  let startString = `2020${startDate?.split('-')[1]}${startDate?.split('-')[0]}T${startTime?.split(':')[0]}${
+    startTime?.split(':')[1]
+  }`;
+  let endString = startString;
+  let newEndTime = parseInt(endString[10]) + 2;
+  endString = endString.substring(0, 10) + newEndTime + endString.substring(11);
   ctx.reply(
-    `https://calendar.google.com/calendar/r/eventedit?text=COPS+Meeting&dates=20190920T160000/20190920T180000&details=COPS+dev+group+meeting&location=IIT(BHU)`,
+    `https://calendar.google.com/calendar/r/eventedit?text=COPS+Meeting&dates=${startString}/${endString}&details=COPS+dev+group+meeting&location=IIT(BHU)`,
   );
 });
 
