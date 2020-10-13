@@ -27,14 +27,14 @@ bot.on('new_chat_members', async (ctx: ContextMessageUpdate) => {
 });
 
 bot.command('AddEvent', async (ctx: ContextMessageUpdate) => {
-  let args = ctx.message?.text;
-  let startDate: any = args?.slice(10, args.lastIndexOf(' '));
-  let startTime: any = args?.slice(args.lastIndexOf(' ') + 1);
-  let startString = `2020${startDate?.split('-')[1]}${startDate?.split('-')[0]}T${startTime?.split(':')[0]}${
+  const args = ctx.message?.text;
+  const startDate: any = args?.slice(10, args.lastIndexOf(' '));
+  const startTime: any = args?.slice(args.lastIndexOf(' ') + 1);
+  const startString = `2020${startDate?.split('-')[1]}${startDate?.split('-')[0]}T${startTime?.split(':')[0]}${
     startTime?.split(':')[1]
   }`;
   let endString = startString;
-  let newEndTime = parseInt(endString[10]) + 2;
+  const newEndTime = parseInt(endString[10]) + 2;
   endString = endString.substring(0, 10) + newEndTime + endString.substring(11);
   ctx.reply(
     `https://calendar.google.com/calendar/r/eventedit?text=COPS+Meeting&dates=${startString}/${endString}&details=COPS+dev+group+meeting&location=IIT(BHU)`,
