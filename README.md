@@ -19,7 +19,7 @@ new bot and obtain a token.
 
 #### Set env varaibles in nodemon.json
 - Add your bot token to the `nodemon.json` file.
-- Chat ID isn't a necessary token needed for deployment purpose only.
+- CHATID and PASSWORD aren't a necessary token needed for deployment purpose only.
 
 #### Running the bot
 - `npm run lucy-bot`
@@ -33,7 +33,7 @@ new bot and obtain a token.
 - `vercel --prod`
 
 #### Go to your vercel dashboard and set the env variable
-- Set an env variable with key `LUCY_BOT_TOKEN` and equal to your bot token.
+- Set an env variable with key `LUCY_BOT_TOKEN` equal to your bot token.
 
 **NOTE** - You may need to deploy your bot again after setting the env variables.
 

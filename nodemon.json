@@ -17,7 +17,6 @@
   "ext": "js,ts,json",
   "env": {
     "LUCY_BOT_TOKEN": "set",
-    "URL": "set",
     "CHATID": "set",
     "PASSWORD": "set"
   }

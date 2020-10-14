@@ -44,7 +44,7 @@ if (!PROD_ENV) {
   bot.launch();
 }
 
-module.exports = async (req: NowRequest, resp: NowResponse): Promise<NowResponse> => {
+module.exports = (req: NowRequest, resp: NowResponse) => {
   if (req.method === 'POST') bot.handleUpdate(req.body, resp);
-  return resp.status(200).send('Use POST to use Telegram bot!');
+  else resp.status(200).send('Use POST to use Telegram bot!');
 };
