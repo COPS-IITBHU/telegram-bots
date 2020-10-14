@@ -7,6 +7,7 @@ const PROD_ENV = process.env.NODE_ENV === 'production';
 
 const bot = new Telegraf(process.env.LUCY_BOT_TOKEN || '');
 
+bot.use(Telegraf.log());
 bot.use(async (ctx: ContextMessageUpdate, next) => {
   const start = new Date();
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -43,7 +44,7 @@ if (!PROD_ENV) {
   bot.launch();
 }
 
-module.exports = (req: NowRequest, resp: NowResponse) => {
+module.exports = async (req: NowRequest, resp: NowResponse): Promise<NowResponse> => {
   if (req.method === 'POST') bot.handleUpdate(req.body, resp);
-  else resp.status(200).send('Use POST to use Telegram bot!');
+  return resp.status(200).send('Use POST to use Telegram bot!');
 };
