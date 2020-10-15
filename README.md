@@ -15,11 +15,11 @@ new bot and obtain a token.
 ### Local development
 
 #### Install dependencies
-- `npm install`
+- `npm install -ci`
 
-#### Create a .env file
-- `cp .env.example .env`
-- Add your bot token to the `.env` file.
+#### Set env varaibles in nodemon.json
+- Add your bot token to the `nodemon.json` file.
+- CHATID and PASSWORD aren't a necessary token needed for deployment purpose only.
 
 #### Running the bot
 - `npm run lucy-bot`

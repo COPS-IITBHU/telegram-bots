@@ -1,0 +1,23 @@
+name: Weekly Cron
+
+on:
+  schedule:
+    - cron: "00 8 * * 0"
+  workflow_dispatch:
+
+jobs:
+  ping_bot:
+    runs-on: ubuntu-latest
+
+    name: Weekly Top DEV Articles
+    steps:
+      - uses: actions/checkout@v2
+      - name: curl to ping lucy
+        env:
+          URL: ${{ secrets.LUCY_URL }}
+          PASSWORD: ${{ secrets.ARTICLE_PASSWORD }}
+        run: |
+          curl --silent --show-error --fail \
+          -G $URL \
+          -H "Authorization: $PASSWORD"
+        shell: bash

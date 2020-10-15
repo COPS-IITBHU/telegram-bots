@@ -5,13 +5,9 @@ import { ExtraEditMessage } from 'telegraf/typings/telegram-types';
 
 const PROD_ENV = process.env.NODE_ENV === 'production';
 
-if (!PROD_ENV) {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  require('dotenv').config();
-}
-
 const bot = new Telegraf(process.env.LUCY_BOT_TOKEN || '');
 
+bot.use(Telegraf.log());
 bot.use(async (ctx: ContextMessageUpdate, next) => {
   const start = new Date();
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
