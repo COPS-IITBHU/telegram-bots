@@ -19,7 +19,7 @@ new bot and obtain a token.
 
 #### Set env varaibles in nodemon.json
 - Add your bot token to the `nodemon.json` file.
-- CHATID and PASSWORD aren't a necessary token needed for deployment purpose only.
+- CHATID and PASSWORD aren't necessary and are needed for deployment purpose only.
 
 #### Running the bot
 - `npm run lucy-bot`
