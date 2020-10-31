@@ -3,7 +3,6 @@
   "ignore": [
     "node_modules/**/node_modules",
     ".git",
-    ".vercel",
     ".github"
   ],
   "verbose": true,
@@ -11,13 +10,8 @@
     "ts": "ts-node"
   },
   "watch": [
-    "api/"
+    "src/"
   ],
   "delay": "2000",
-  "ext": "js,ts,json",
-  "env": {
-    "LUCY_BOT_TOKEN": "set",
-    "CHATID": "set",
-    "PASSWORD": "set"
-  }
+  "ext": "js,ts,json"
 }

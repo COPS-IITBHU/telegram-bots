@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { ExtraEditMessage } from 'telegraf/typings/telegram-types';
 import Telegraf, { ContextMessageUpdate, Extra } from 'telegraf';
-import { NowRequest, NowResponse } from '@now/node';
+import * as functions from 'firebase-functions';
 
-const bot = new Telegraf(process.env.LUCY_BOT_TOKEN || '');
+const bot = new Telegraf(functions.config().telegram?.lucy_bot_token);
 
 bot.use(Telegraf.log());
 bot.use(async (ctx: ContextMessageUpdate, next) => {
@@ -49,20 +49,22 @@ export const markdownArticles = (artices: Article[]): string[] => {
   return artices.map((e) => `[${e.title}](${e.url}) by [${e.user}](${e.userId})\n${e.description}`);
 };
 
-module.exports = async (req: NowRequest, res: NowResponse): Promise<NowResponse> => {
-  const password: string | undefined = req.headers.authorization;
-  if (password === process.env.PASSWORD) {
-    const replyList = await fetchArticles().then(markdownArticles);
-    await bot.telegram
-      .sendMessage(
-        `${process.env.CHATID}`,
-        `Hey Devs here are week's top blogs :)\n\n${replyList.join('\n\n')}`,
-        <ExtraEditMessage>Extra.markdown().webPreview(false),
-      )
-      .catch((e) => console.error(e));
+export const article = functions.https.onRequest(
+  async (req: functions.Request, res: functions.Response): Promise<void> => {
+    const password: string | undefined = req.headers.authorization;
+    if (password === functions.config().telegram?.password) {
+      const replyList = await fetchArticles().then(markdownArticles);
+      await bot.telegram
+        .sendMessage(
+          `${functions.config().telegram?.chatid}`,
+          `Hey Devs here are week's top blogs :)\n\n${replyList.join('\n\n')}`,
+          <ExtraEditMessage>Extra.markdown().webPreview(false),
+        )
+        .catch((e) => console.error(e));
 
-    return res.status(200).send('Article Sent');
-  }
+      res.status(200).send('Article Sent');
+    }
 
-  return res.status(200).send('Invalid password!');
-};
+    res.status(200).send('Invalid password!');
+  },
+);
