@@ -17,7 +17,7 @@ new bot and obtain a token.
 #### Install dependencies
 - `npm install -ci`
 
-#### Set env varaibles in nodemon.json
+#### Set env variables in nodemon.json
 - Add your bot token to the `nodemon.json` file.
 - CHATID and PASSWORD aren't necessary and are needed for deployment purpose only.
 
