@@ -1,5 +1,5 @@
 # Telegram Bots
-This repository contains the source code of the telegram bots developed and used by the COPS Dev Group.
+This repository contains the source code of the telegram bots developed and used by the COPS Dev Group. This bot is not used anymore because COPS Dev group has shifted to discord.
 
 
 ## Setting Up
